@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y \
 # Apache2 settings
 RUN echo "ScriptAlias /gyazo/upload.cgi /opt/gyazo/upload.cgi" > /etc/apache2/conf.d/gyazo.conf
 RUN sed -i 's/var\/www/opt\/gyazo/' /etc/apache2/sites-available/default
-RUN mkdir /var/run/apache2
-RUN install -d -m 755 -o www-data -g www-data /var/lock/apache2
 
 # install Gyazo
 WORKDIR /opt/gyazo
